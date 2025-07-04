@@ -6,28 +6,35 @@ st.set_page_config(
     page_icon="🏠" 
 )
 
-image_path2 = "C:/Users/greco/Trabalho/portifolio/foto_delivery.jpg"
-image = Image.open(image_path2)
-st.sidebar.image(image, width=120)
+# --- CORREÇÃO: Usando caminho relativo para a imagem ---
+try:
+    image = Image.open("foto_delivery.jpg")
+    st.sidebar.image(image, width=120)
+except FileNotFoundError:
+    st.sidebar.error("Imagem 'foto_delivery.jpg' não encontrada. Verifique se ela está no repositório do GitHub.")
+
 st.sidebar.markdown("*O mais rapido Delivery da cidade*")
-st.write("# Dashboard da Express Delivery")
+st.sidebar.markdown("---")
+st.sidebar.markdown("### Feito por Gustavo Grecov")
+
+st.write("# Dashboard da Express Delivery 📈")
 st.markdown(
-    '''
-Growth Dashboard foi construído para acompanhar as métricas de crescimento dos Entregadores e Restaurantes.
-### Como utilizar esse Growth Dashboard?
-- Visão Empresa:
-    - Visão Gerencial: Métricas gerais de comportamento.
-    - Visão Tática: Indicadores semanais de crescimento.
-    - Visão Geográfica: Insights de geolocalização.
+    """
+    O Growth Dashboard foi construído para acompanhar as métricas de crescimento dos Entregadores e Restaurantes.
+    
+    ### Como utilizar esse Growth Dashboard?
+    - **Visão Empresa:**
+        - **Visão Gerencial:** Métricas gerais de comportamento.
+        - **Visão Tática:** Indicadores semanais de crescimento.
+        - **Visão Geográfica:** Insights de geolocalização.
+    - **Visão Entregador:**
+        - Acompanhamento dos indicadores semanais de crescimento.
+    - **Visão Restaurante:**
+        - Indicadores semanais de crescimento dos restaurantes.
+    
+    ### Precisa de ajuda?
+    - **Time de Data Science no LinkedIn**
+        - [Gustavo Sales Grecov](https://www.linkedin.com/in/gustavo-sales-grecov-530745350/)
+    """
+)
 
-- Visão Entregador:
-    - Acompanhamento dos indicadores semanais de crescimento
-
-- Visão Restaurante:
-    - Indicadores semanais de crescimento dos restaurantes
-
-### Ask for Help
-- Time de Data Science no LinkedIn 
-    - linkedin.com/in/gustavo-sales-grecov-530745350/
-
-''')
